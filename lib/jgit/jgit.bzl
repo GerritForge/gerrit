@@ -1,6 +1,6 @@
-load("//tools/bzl:maven_jar.bzl", "MAVEN_CENTRAL", "maven_jar")
+load("//tools/bzl:maven_jar.bzl", "MAVEN_CENTRAL", "MAVEN_LOCAL", "maven_jar")
 
-_JGIT_VERS = "5.1.16.202106041830-r"
+_JGIT_VERS = "5.1.17.202204082217-gerritforge-r"
 
 _DOC_VERS = "5.1.15.202012011955-r"  # Set to _JGIT_VERS unless using a snapshot
 # TODO: workaround to be removed when merging upstream:
@@ -10,7 +10,7 @@ _DOC_VERS = "5.1.15.202012011955-r"  # Set to _JGIT_VERS unless using a snapshot
 
 JGIT_DOC_URL = "https://archive.eclipse.org/jgit/site/" + _DOC_VERS + "/apidocs"
 
-_JGIT_REPO = MAVEN_CENTRAL  # Leave here even if set to MAVEN_CENTRAL.
+_JGIT_REPO = MAVEN_LOCAL  # Leave here even if set to MAVEN_CENTRAL.
 
 # set this to use a local version.
 # "/home/<user>/projects/jgit"
@@ -44,28 +44,28 @@ def jgit_maven_repos():
         name = "jgit-lib",
         artifact = "org.eclipse.jgit:org.eclipse.jgit:" + _JGIT_VERS,
         repository = _JGIT_REPO,
-        sha1 = "1b32273b9b8326a14355374702799b6cd4a94050",
-        src_sha1 = "62a010fe8e0de9c4684348f3853da3c817257165",
+        sha1 = "91122d938e6f1731bb74f1044718e5df2c361de1",
+        src_sha1 = "7d6c04bac0fde9859ace3775b4aa2f092ed3fe8c",
         unsign = True,
     )
     maven_jar(
         name = "jgit-servlet",
         artifact = "org.eclipse.jgit:org.eclipse.jgit.http.server:" + _JGIT_VERS,
         repository = _JGIT_REPO,
-        sha1 = "f375f3c6cfe37096ee984d3a2f380817446ac5f0",
+        sha1 = "d2429ac56e60ac6af326c24e9a5d523e12a4ea4c",
         unsign = True,
     )
     maven_jar(
         name = "jgit-archive",
         artifact = "org.eclipse.jgit:org.eclipse.jgit.archive:" + _JGIT_VERS,
         repository = _JGIT_REPO,
-        sha1 = "20378bb3138a9ab8d2e13036a2f3e4719caad7a2",
+        sha1 = "6ebcd37bfe9140ea3e0a0112b6bf11cf87a8c024",
     )
     maven_jar(
         name = "jgit-junit",
         artifact = "org.eclipse.jgit:org.eclipse.jgit.junit:" + _JGIT_VERS,
         repository = _JGIT_REPO,
-        sha1 = "9563231cf411841a78f9bb703782b0f0a716d420",
+        sha1 = "7392662c283b3c779f7aad39d7a4b30ea1a7e1e1",
         unsign = True,
     )
 
