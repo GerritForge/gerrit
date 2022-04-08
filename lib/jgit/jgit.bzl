@@ -1,6 +1,6 @@
-load("//tools/bzl:maven_jar.bzl", "MAVEN_CENTRAL", "maven_jar")
+load("//tools/bzl:maven_jar.bzl", "MAVEN_CENTRAL", "MAVEN_LOCAL", "maven_jar")
 
-_JGIT_VERS = "5.1.16.202106041830-r"
+_JGIT_VERS = "5.1.17.202204082217-gerritforge-r"
 
 _DOC_VERS = "5.1.15.202012011955-r"  # Set to _JGIT_VERS unless using a snapshot
 # TODO: workaround to be removed when merging upstream:
@@ -10,7 +10,7 @@ _DOC_VERS = "5.1.15.202012011955-r"  # Set to _JGIT_VERS unless using a snapshot
 
 JGIT_DOC_URL = "https://archive.eclipse.org/jgit/site/" + _DOC_VERS + "/apidocs"
 
-_JGIT_REPO = MAVEN_CENTRAL  # Leave here even if set to MAVEN_CENTRAL.
+_JGIT_REPO = MAVEN_LOCAL  # Leave here even if set to MAVEN_CENTRAL.
 
 # set this to use a local version.
 # "/home/<user>/projects/jgit"
@@ -44,28 +44,23 @@ def jgit_maven_repos():
         name = "jgit-lib",
         artifact = "org.eclipse.jgit:org.eclipse.jgit:" + _JGIT_VERS,
         repository = _JGIT_REPO,
-        sha1 = "1b32273b9b8326a14355374702799b6cd4a94050",
-        src_sha1 = "62a010fe8e0de9c4684348f3853da3c817257165",
         unsign = True,
     )
     maven_jar(
         name = "jgit-servlet",
         artifact = "org.eclipse.jgit:org.eclipse.jgit.http.server:" + _JGIT_VERS,
         repository = _JGIT_REPO,
-        sha1 = "f375f3c6cfe37096ee984d3a2f380817446ac5f0",
         unsign = True,
     )
     maven_jar(
         name = "jgit-archive",
         artifact = "org.eclipse.jgit:org.eclipse.jgit.archive:" + _JGIT_VERS,
         repository = _JGIT_REPO,
-        sha1 = "20378bb3138a9ab8d2e13036a2f3e4719caad7a2",
     )
     maven_jar(
         name = "jgit-junit",
         artifact = "org.eclipse.jgit:org.eclipse.jgit.junit:" + _JGIT_VERS,
         repository = _JGIT_REPO,
-        sha1 = "9563231cf411841a78f9bb703782b0f0a716d420",
         unsign = True,
     )
 
