@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a4d3b46_bfac8c64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-04-09T10:21:57Z",
+      "side": 1,
+      "message": "https://gerrit-review.googlesource.com/c/gerrit/+/334539 has been merged",
+      "revId": "23db8a546b800b2c91629d80b6f5117ff635238a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
