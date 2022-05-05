@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3bd3b49_00f1d41a",
+        "filename": "lib/jgit/jgit.bzl",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-05T00:27:53Z",
+      "side": 1,
+      "message": "If JGit is built locally, we cannot enforce SHA1s",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 62
+      },
+      "revId": "939a08586a7e333e8ec79ff8a07153eff50a9685",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94a5f38b_ed85d85a",
+        "filename": "lib/jgit/jgit.bzl",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-05T00:27:53Z",
+      "side": 1,
+      "message": "If JGit is built locally, we cannot enforce SHA1s",
+      "revId": "939a08586a7e333e8ec79ff8a07153eff50a9685",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7438fb52_b28ea2a3",
+        "filename": "lib/jgit/jgit.bzl",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-05T00:27:53Z",
+      "side": 1,
+      "message": "If JGit is built locally, we cannot enforce SHA1s",
+      "revId": "939a08586a7e333e8ec79ff8a07153eff50a9685",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "161fe7ca_454330c8",
+        "filename": "lib/jgit/jgit.bzl",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-05-05T00:27:53Z",
+      "side": 1,
+      "message": "If JGit is built locally, we cannot enforce SHA1s",
+      "revId": "939a08586a7e333e8ec79ff8a07153eff50a9685",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
