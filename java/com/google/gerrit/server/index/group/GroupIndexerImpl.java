@@ -127,6 +127,14 @@ public class GroupIndexerImpl implements GroupIndexer {
         }
       }
     }
+
+    // These caches use the result from the index and hence must be evicted after refreshing the
+    // index.
+    if (internalGroup.isPresent()) {
+      InternalGroup group = internalGroup.get();
+      groupCache.evict(group.getId());
+      groupCache.evict(group.getNameKey());
+    }
     fireGroupIndexedEvent(uuid.get());
   }
 
