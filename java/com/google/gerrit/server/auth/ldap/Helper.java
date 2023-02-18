@@ -19,11 +19,11 @@ import com.google.common.cache.Cache;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.common.data.ParameterizedString;
-import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.metrics.Description;
 import com.google.gerrit.metrics.Description.Units;
 import com.google.gerrit.metrics.MetricMaker;
 import com.google.gerrit.metrics.Timer0;
+import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.server.account.AccountException;
 import com.google.gerrit.server.account.AuthenticationFailedException;
 import com.google.gerrit.server.auth.NoSuchUserException;
@@ -69,6 +69,8 @@ class Helper {
 
   static final String LDAP_UUID = "ldap:";
   static final String STARTTLS_PROPERTY = Helper.class.getName() + ".startTls";
+
+  static final long delayMsec = Long.parseLong(System.getProperty("ldap.slowdown.msec", "0"));
 
   private final Cache<String, ImmutableSet<String>> parentGroups;
   private final Config config;
@@ -254,6 +256,7 @@ class Helper {
   DirContext authenticate(String dn, String password) throws AccountException {
     final Properties env = createContextProperties();
     try (Timer0.Context ignored = loginLatencyTimer.start()) {
+      slowdown();
       env.put(Context.REFERRAL, referral);
 
       if (!supportAnonymous) {
@@ -291,6 +294,7 @@ class Helper {
   LdapQuery.Result findAccount(
       Helper.LdapSchema schema, DirContext ctx, String username, boolean fetchMemberOf)
       throws NamingException, AccountException {
+    slowdown();
     final HashMap<String, String> params = new HashMap<>();
     params.put(LdapRealm.USERNAME, username);
 
@@ -316,6 +320,8 @@ class Helper {
       final DirContext ctx, String username, LdapQuery.Result account) throws NamingException {
     final LdapSchema schema = getSchema(ctx);
     final Set<String> groupDNs = new HashSet<>();
+
+    slowdown();
 
     if (!schema.groupMemberQueryList.isEmpty()) {
       final HashMap<String, String> params = new HashMap<>();
@@ -541,6 +547,15 @@ class Helper {
             server);
         return LdapType.RFC_2307;
       }
+    }
+  }
+
+  private static void slowdown() {
+    try {
+      logger.atInfo().log("Simulating LDAP slowdown by %s msec", delayMsec);
+      Thread.sleep(delayMsec);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
     }
   }
 }
