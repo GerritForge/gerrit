@@ -1,6 +1,6 @@
 [submodule "modules/jgit"]
 	path = modules/jgit
-	url = ../jgit
+	url = https://review.gerrithub.io/GerritForge/jgit
 
 [submodule "plugins/codemirror-editor"]
 	path = plugins/codemirror-editor
